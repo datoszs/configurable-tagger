@@ -54,7 +54,9 @@ class Tagger
         if (states.containsKey(from) && states[from].containsKey(state)) {
             throw new DuplicateTransitionError($/The transition from [${from}] under state [${state}] is already defined./$)
         }
-        states[from] = [:]
+        if (!states.containsKey(from)) {
+            states[from] = [:]
+        }
         states[from][state] = to;
     }
 
@@ -85,11 +87,18 @@ class Tagger
             }
             // Move to the next gear according to state diagram (or finalized state)
             if (context.isFinalized()) {
+                if (debugMode) {
+                    println "HERE"
+                }
                 gear = null
             } else if (states.containsKey(gear.getName()) && states[gear.getName()].containsKey(context.getState())) {
                 gear = getGear(states[gear.getName()][context.getState()])
             } else {
                 gear = null
+                if (debugMode) {
+                    println(states)
+                    println "AAA"
+                }
             }
             if (debugMode) {
                 if (gear) {

@@ -5,11 +5,11 @@ import cz.czechlawers.tagger.state.Context
 import cz.czechlawers.tagger.content.FileContent
 import cz.czechlawers.tagger.content.StringContent
 
-class FileLoader extends AGear
+class FileReader extends AGear
 {
     final static int LOADED = 1
 
-    FileLoader(String name) {
+    FileReader(String name) {
         super(name)
     }
 

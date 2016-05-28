@@ -5,11 +5,15 @@ import cz.czechlawers.tagger.content.IContent
 class Context
 {
     def content = null;
+    def originalContent = null
     def state = 0;
     def finalized = false
 
     def Context(IContent content)
     {
+        if (!this.content) {
+            originalContent == content
+        }
         this.content = content
     }
 
@@ -19,7 +23,20 @@ class Context
     }
     def setContent(IContent content)
     {
+        if (!this.content) {
+            originalContent == content
+        }
         this.content = content;
+    }
+
+    def backupContent()
+    {
+        originalContent = content
+    }
+
+    def restoreContent()
+    {
+        content = originalContent
     }
 
     def getState()
