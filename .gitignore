@@ -1,0 +1,12 @@
+.idea
+.gradle
+build
+gradle
+*.class
+gradlew
+gradlew.bat
+
+# Package Files #
+*.jar
+*.war
+*.ear

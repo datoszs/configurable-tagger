@@ -1,0 +1,15 @@
+group 'configurable-tagger'
+version '1.0'
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+
+repositories {
+    mavenCentral()
+}
+
+// In this section you declare the dependencies for your production and test code
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.4.6'
+    testCompile 'junit:junit:4.12'
+}
