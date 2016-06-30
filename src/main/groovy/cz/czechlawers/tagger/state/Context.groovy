@@ -8,6 +8,7 @@ class Context
     def originalContent = null
     def state = 0;
     def finalized = false
+    def errorState = null;
 
     def Context(IContent content)
     {
@@ -57,5 +58,10 @@ class Context
     def markFinalized()
     {
         this.finalized = true
+    }
+
+    def setErrorState(errorState)
+    {
+        this.errorState = errorState
     }
 }
